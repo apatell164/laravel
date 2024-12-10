@@ -21,7 +21,7 @@
                     <x-nav-link :href="route('salary.view')" :active="request()->routeIs('salary.view')">
                         {{ __('Salary Structure') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('organization.designation')" :active="request()->routeIs('organization.designation')">
+                    <x-nav-link :href="route('organization.designationList')" :active="request()->routeIs(['organization.designation' , 'organization.designationList' ])">
                         {{ __('Designation') }}
                     </x-nav-link>
                 </div>

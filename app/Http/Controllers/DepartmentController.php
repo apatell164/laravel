@@ -27,8 +27,9 @@ class DepartmentController extends Controller
         $checkdepartment = Department::orderBy('id', 'desc')->first();
 
         if (!empty($checkdepartment)) {
-            $getNumber = Department::orderBy('id', 'desc')->first()->DepartmentId;
-            $DepartmentId = str_pad(($getNumber + 1), 3, "0", STR_PAD_LEFT);
+            $getNumber = Department::orderBy('id', 'desc')->first()->department_id;
+            $Id = substr($getNumber,2);
+            $DepartmentId = str_pad(($Id + 1), 3, "0", STR_PAD_LEFT); 
         } else {
             $DepartmentId = str_pad((0 + 1), 3, "0", STR_PAD_LEFT);
         }

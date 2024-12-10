@@ -1,34 +1,29 @@
 
-<div class="shadow p-4 d-flex justify-content-between align-items-center ">
-    <h4 class="text-uppercase">Designation Form</h4>
-    <div>
-        <a href="{{ route('organization.designationList') }}" class="btn btn-success p-2 text-lg rounded-pill"><i
-                class="fa-regular fa-eye me-1"></i>Designation List</a>
-    </div>
-</div>
-<div class="container my-5 py-5">
+<x-app-layout>
 
-    <!--Section: Form Design Block-->
+    <x-slot name="header">
+     <div class="flex">
+        <div class ="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:items-right">
+            <h2 class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex font-semibold text-xl text-gray-800 leading-tight sm:ms-8">
+                {{ __('Add Designation') }}
+            </h2>
+        </div>
+        <div class ="hidden sm:flex sm:items-center sm:ms-6">
+             <x-nav-link :href="route('organization.designationList')" >
+                {{ __('Back') }}
+            </x-nav-link>
+        </div>
+        </div>
+    </x-slot>
 
-
-    {{-- Department Form start --}}
-    <div class="text-left w-50 mx-auto">
-        <div class="card mb-4">
-            <div class="card-header py-3">
-                <h5 class="text-uppercase">New Designation</h5>
-            </div>
+  
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
             <div class="card-body">
                 <form action="{{ route('organization.designation.store') }}" method="post">
                     @csrf
-                    <div class="row mb-4">
-                        <div class="col">
-                            <div class="form-outline">
-                                <label class="form-label mt-2" for="form11Example1">Designation ID</label>
-                                <input type="text" class="form-control" name="designation_id" id="" required>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="row mb-4">
                         <div class=" col">
                             <div class="col">
@@ -80,4 +75,5 @@
             </div>
         </div>
     </div>
-</div>
+
+</x-app-layout>
