@@ -24,7 +24,7 @@ class Employee extends Authenticatable
 
     public function designation()
     {
-        return $this->belongsTo(Designation::class);
+        return $this->belongsTo(Designation::class , 'designation_id' , 'id');
     }
 
     public function salaryStructure()

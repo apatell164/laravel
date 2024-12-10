@@ -8,6 +8,8 @@ use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\SalaryStructureController;
 use App\Http\controllers\manageEmployeeController;
 use App\Http\controllers\viewEmployeeController;
+use App\Http\controllers\LeaveTypeController;
+use App\Http\Controllers\Front\LeaveController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -60,6 +62,12 @@ Route::middleware('auth')->group(function () {
 
 
 
+    Route::get('/Leave/LeaveType', [LeaveTypeController::class, 'leaveType'])->name('leave.leaveType');
+    Route::post('/Leave/LeaveType/store', [LeaveTypeController::class, 'leaveStore'])->name('leave.leaveType.store');
+    Route::get('/LeaveType/delete/{id}', [LeaveTypeController::class, 'LeaveDelete'])->name('leave.leaveType.delete');
+    Route::get('/LeaveType/edit/{id}', [LeaveTypeController::class, 'leaveEdit'])->name('leave.leaveType.edit');
+    Route::put('/LeaveType/update/{id}', [LeaveTypeController::class, 'LeaveUpdate'])->name('leave.leaveType.update');
+    
 
     // Ajax call
 
@@ -67,10 +75,22 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/EMlogin', [EmployeeController::class, 'showLoginForm'])->name('EMlogin');
-Route::post('/EMlogin', [EmployeeController::class, 'login']);
-Route::get('/EMdashboard', [EmployeeController::class, 'dashboard'])->middleware('emp.auth')->name('EMdashboard');
-Route::post('/EMlogout', [EmployeeController::class, 'logout'])->name('EMlogout');
+    Route::get('/EMlogin', [EmployeeController::class, 'showLoginForm'])->name('EMlogin');
+    Route::post('/EMlogin', [EmployeeController::class, 'login']);
+    Route::get('/EMdashboard', [EmployeeController::class, 'dashboard'])->middleware('emp.auth')->name('EMdashboard');
+    Route::post('/EMlogout', [EmployeeController::class, 'logout'])->name('EMlogout');
 
+
+    Route::middleware('emp.auth')->group(function () {
+
+        // Leave Routes for Employee
+        Route::get('/Leave/LeaveForm', [LeaveController::class, 'leave'])->name('leave.leaveForm');
+        Route::post('/Leave/store', [LeaveController::class, 'store'])->name('leave.store');
+        Route::get('/Leave/myLeave', [LeaveController::class, 'myLeave'])->name('leave.myLeave');
+        Route::get('/Leave/myLeaveBalance', [LeaveController::class, 'showLeaveBalance'])->name('leave.myLeaveBalance');
+        Route::get('/Leave/myLeaveReport', [LeaveController::class, 'myLeaveReport'])->name('myLeaveReport');
+        Route::get('/searchMyLeave', [LeaveController::class, 'searchMyLeave'])->name('searchMyLeave');
+
+    });
 require __DIR__.'/auth.php';
 

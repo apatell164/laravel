@@ -24,6 +24,7 @@
                     <x-nav-link :href="route('organization.designationList')" :active="request()->routeIs(['organization.designation' , 'organization.designationList' ])">
                         {{ __('Designation') }}
                     </x-nav-link>
+
                     <x-nav-link :href="route('manageEmployee.ViewEmployee')" :active="request()->routeIs(['manageEmployee.ViewEmployee' , 'manageEmployee.addEmployee' , 'Employee.edit'])">
                         {{ __('Employee') }}
                     </x-nav-link>

@@ -8,6 +8,7 @@ use App\Models\Employee;
 use App\Models\SalaryStructure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class manageEmployeeController extends Controller
 {
@@ -76,6 +77,7 @@ class manageEmployeeController extends Controller
             'phone' => $request->phone,
             'joining_mode' => $request->joining_mode,
             'location' => $request->location,
+            'password' => Hash::make($request->passwors) ,
         ]);
         notify()->success('New Employee created successfully.');
         return redirect()->route('manageEmployee.ViewEmployee');

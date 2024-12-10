@@ -50,6 +50,21 @@
                                     @enderror
                                 </div>
                             </div> --}}
+
+                            <div class="col-md-4">
+                                <div class="form-outline mb-4">
+                                    <label class="form-label mt-2 fw-bold" for="form11Example6">Phone</label>
+                                    <input required placeholder="Phone Number" type="text" id="form11Example6"
+                                        name="phone" class="form-control" 
+                                        title="Enter a valid Bangladeshi phone number with optional +88 or 01 preceding 11 digits" />
+                                </div>
+                                <div class="mt-2">
+                                    @error('phone')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
                             <div class=" col-md-4">
                                 <div class="form-outline">
                                     <label class="form-label mt-2" for="form11Example1">Deparment Name</label>
@@ -131,13 +146,13 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-outline mb-4">
-                                    <label class="form-label mt-2 fw-bold" for="form11Example6">Phone</label>
-                                    <input required placeholder="Phone Number" type="text" id="form11Example6"
-                                        name="phone" class="form-control" 
+                                    <label class="form-label mt-2 fw-bold" for="form11Example6">Passwors</label>
+                                    <input required placeholder="Passwors" type="password" id="form11Example6"
+                                        name="passwors" class="form-control" 
                                         title="Enter a valid Bangladeshi phone number with optional +88 or 01 preceding 11 digits" />
                                 </div>
                                 <div class="mt-2">
-                                    @error('phone')
+                                    @error('passwors')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>

@@ -10,6 +10,7 @@ use App\Models\Payroll;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class viewEmployeeController extends Controller
 {
@@ -56,7 +57,7 @@ class viewEmployeeController extends Controller
     {
         $employee = Employee::find($id);
         $departments = Department::all();
-        $designations = Designation::all();
+        $designations = Designation::where('department_id', $employee->department_id)->get();
         $salaries = SalaryStructure::all();
         return view('admin.pages.manageEmployee.EditEmployee', compact('employee', 'departments', 'designations', 'salaries'));
     }
