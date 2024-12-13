@@ -20,7 +20,7 @@ class EmpAuth
             /**
              * if front user is not logged in then set intended redirection & add cart
              */
-            return redirect('/Emlogin');
+            return redirect('/EMlogin');
         } 
         return $next($request);
     }

@@ -27,6 +27,9 @@
                     <x-nav-link :href="route('manageEmployee.ViewEmployee')" :active="request()->routeIs(['manageEmployee.ViewEmployee' , 'manageEmployee.addEmployee' , 'Employee.edit'])">
                         {{ __('Employee') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('leave.leaveStatus')" :active="request()->routeIs(['leave.leaveStatus' , 'allLeaveReport'])">
+                        {{ __('Leave') }}
+                    </x-nav-link>
                 </div>
             </div>
 

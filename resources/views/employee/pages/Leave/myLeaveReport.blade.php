@@ -1,6 +1,4 @@
-@extends('admin.master')
-
-@section('content')
+<x-frontLayout>
 <div class="shadow p-4 d-flex justify-content-between align-items-center ">
     <h4 class="text-uppercase">My Leave</h4>
     <div>
@@ -24,11 +22,11 @@
         <div class="card-header">
             <div class="row mb-4">
                 <div class="col-sm-6">
-                    <h3 class="text-dark mb-1">{{ auth()->user()->name }}</h3>
-                    <div>Designation: {{ auth()->user()->employee->designation->designation_name }}</div>
-                    <div>Department: {{ auth()->user()->employee->department->department_name }}</div>
-                    <div>Email: {{ auth()->user()->employee->email }}</div>
-                    <div>Phone: {{ auth()->user()->employee->phone }}</div>
+                    <h3 class="text-dark mb-1">{{ auth('front-user')->user()->name }}</h3>
+                    <div>Designation: {{ auth('front-user')->user()->designation->designation_name }}</div>
+                    <div>Department: {{ auth('front-user')->user()->department->department_name }}</div>
+                    <div>Email: {{ auth('front-user')->user()->email }}</div>
+                    <div>Phone: {{ auth('front-user')->user()->phone }}</div>
                 </div>
             </div>
             <table class="table align-middle text-center table-hover  bg-white">
@@ -63,7 +61,7 @@
         </div>
     </div>
 </div>
-@endsection
+</x-frontLayout>
 
 @push('yourJsCode')
 

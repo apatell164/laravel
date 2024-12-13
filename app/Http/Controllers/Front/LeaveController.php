@@ -174,4 +174,43 @@ class LeaveController extends Controller
 
         return view('employee.pages.Leave.myLeaveBalance', compact('leaveTypeBalances', 'totalTakenDays', 'designationLeaveDays', 'designation', 'availableDays'));
     }
+
+    public function myLeaveReport()
+    {
+        $userId = auth('front-user')->user()->id;
+
+        // Retrieve only approved leave records for the authenticated user
+        $leaves = Leave::where('employee_id', $userId)
+            ->where('status', 'approved') // Fetch only approved leaves
+            ->with(['type'])
+            ->paginate(5);
+
+        return view('employee.pages.Leave.myLeaveReport', compact('leaves'));
+    }
+
+     // search my leave
+     public function searchMyLeave(Request $request)
+     {
+         $userId = auth('front-user')->user()->id;
+         $searchTerm = $request->search;
+ 
+         $query = Leave::where('employee_id', $userId)->with('type');
+ 
+         if ($searchTerm) {
+             $query->where(function ($q) use ($searchTerm) {
+                 $q->whereHas('type', function ($typeQuery) use ($searchTerm) {
+                     $typeQuery->where('leave_type_id', 'LIKE', '%' . $searchTerm . '%');
+                 })
+                     ->orWhere('from_date', 'LIKE', '%' . $searchTerm . '%')
+                     ->orWhere('to_date', 'LIKE', '%' . $searchTerm . '%')
+                     ->orWhere('total_days', 'LIKE', '%' . $searchTerm . '%')
+                     ->orWhere('description', 'LIKE', '%' . $searchTerm . '%')
+                     ->orWhere('status', 'LIKE', '%' . $searchTerm . '%');
+             });
+         }
+ 
+         $leaves = $query->paginate(5);
+ 
+         return view('employee.pages.Leave.searchMyLeave', compact('leaves'));
+     }
 }

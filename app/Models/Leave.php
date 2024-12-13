@@ -15,4 +15,20 @@ class Leave extends Model
     {
         return $this->belongsTo(LeaveType::class, 'leave_type_id');
     }
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class, 'employee_id');
+    }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class , 'designation_id');
+    }
+
+    public function designation()
+    {
+        return $this->belongsTo(Designation::class , 'designation_id' , 'id');
+    }
+    
 }

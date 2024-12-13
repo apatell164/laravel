@@ -42,7 +42,7 @@
 
 
 
-
+<x-frontLayout>
 <div class="shadow p-4 d-flex justify-content-between align-items-center">
     <h4 class="text-uppercase">My Leave Balance</h4>
 </div>
@@ -166,3 +166,4 @@
     @endif
 
 </div>
+</x-frontLayout>

@@ -14,11 +14,6 @@ use Illuminate\Support\Facades\Hash;
 
 class viewEmployeeController extends Controller
 {
-    // public function viewEmployee()
-    // {
-    //     $employees = Employee::with(['department', 'designation', 'salaryStructure'])->paginate(5);
-    //     return view('admin.pages.manageEmployee.viewEmployee', compact('employees'));
-    // }
     public function viewEmployee()
     {
         $employees = Employee::with(['department', 'designation', 'salaryStructure'])

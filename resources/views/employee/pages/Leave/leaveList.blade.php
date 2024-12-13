@@ -1,22 +1,11 @@
-@extends('admin.master')
 
-@section('content')
 <div class="shadow p-4 d-flex justify-content-between align-items-center">
     <h4 class="text-uppercase">Leave Request</h4>
 </div>
 <div class="my-5 py-5">
 
     <div class="d-flex justify-content-between align-items-center mb-5">
-        <div class="input-group rounded w-50">
-            <form action="{{ route('searchLeaveList') }}" method="get">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search..." name="search">
-                    <button type="submit" class="input-group-text border-0 bg-transparent" id="search-addon">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
+        
         <a href="allLeaveReport" class="btn btn-danger text-capitalize border-0" data-mdb-ripple-color="dark"><i
                 class="fa-regular fa-paste me-1"></i>Report</a>
     </div>
@@ -44,9 +33,9 @@
                         <p class="fw-bold mb-1">{{ $key + 1 }}</p>
                     </div>
                 </td>
-                <td>{{ $leave->employee_name }}</td>
-                <td>{{ $leave->department_name }}</td>
-                <td>{{ $leave->designation_name }}</td>
+                <td>{{ $leave->employee->name }}</td>
+                <td>{{ $leave->employee->department->department_name }}</td>
+                <td>{{ $leave->employee->designation->designation_name }}</td>
                 <td>{{ $leave->type->leave_type_id }}</td>
                 <td>{{ $leave->from_date }}</td>
                 <td>{{ $leave->to_date }}</td>
@@ -73,4 +62,3 @@
         {{ $leaves->links() }}
     </div>
 </div>
-@endsection
