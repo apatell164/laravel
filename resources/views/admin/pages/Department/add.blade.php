@@ -19,7 +19,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="card-body">
-                        <form action="{{ route('organization.department.store') }}" method="post">
+                        <form action="{{ route('organization.department.store') }}" method="post" id="frmDept">
                             @csrf
                             <div class="row mb-4">
                                 <div class=" col">
@@ -27,7 +27,7 @@
                                         <div class="form-outline">
                                             <label class="form-label mt-2" for="form11Example1">Department Name</label>
                                             <input placeholder="Enter Name" class="form-control" name="department_name"
-                                                id="" required>
+                                                id="" >
                                         </div>
                                     </div>
                                 </div>
@@ -42,3 +42,6 @@
         </div>
     </div>
 </x-app-layout>
+
+ <script src="{{ config('constants.APP_URL') .'js/department/department_validations.js?v=0.1' }}" type="text/javascript"></script>
+
