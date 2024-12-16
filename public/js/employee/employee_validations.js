@@ -1,11 +1,11 @@
 var Validate = function () {  
     var handleCoupons = function () {
-        $("#frmDept").validate({
+        $("#empform").validate({
             errorElement: 'span',
             errorClass: 'text-red-600',
             ignore: [],
             rules: {
-                department_name: {
+                name: {
                     required: true,
                     noSpace: true,
                     xssProtection: true,
@@ -14,10 +14,23 @@ var Validate = function () {
                     allowed_special_character_name : true,
                     badwordcheck : true,
                 },
+                phone:{
+                    required: true,
+                    noSpace: true,
+                    xssProtection: true,
+                    no_url: true,
+                    digits:true,
+                },
+                email:{
+                    required: true,
+                    noSpace: true,
+                    xssProtection: true,
+                    no_url: true,
+                },
             },
             messages: {
-                department_name: {
-                    required: "Please enter the title.",
+                name: {
+                    required: "Please enter the employee name.",
                 },
                 
             },

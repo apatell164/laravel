@@ -43,5 +43,5 @@
     </div>
 </x-app-layout>
 
- <script src="{{ config('constants.APP_URL') .'js/department/department_validations.js?v=0.1' }}" type="text/javascript"></script>
+<script src="{{ config('constants.APP_URL') .'js/department/department_validations.js?v=0.1' }}" type="text/javascript"></script>
 

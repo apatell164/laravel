@@ -1,6 +1,6 @@
 
 <x-app-layout>
-    <x-slot name="header">
+    {{-- <x-slot name="header">
     <div class="flex">
        
         <div class ="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:items-right">
@@ -14,7 +14,7 @@
             </x-nav-link>
         </div>
     <div>
-    </x-slot>
+    </x-slot> --}}
 
 <div class="shadow p-4 d-flex justify-content-between align-items-center">
     <h4 class="text-uppercase">View Salary List</h4>

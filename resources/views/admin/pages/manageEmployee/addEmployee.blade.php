@@ -22,7 +22,7 @@
             <div class="p-6 text-gray-900">
                 <div class="card-body">
                     <form action="{{ route('manageEmployee.addEmployee.store') }}" method="post"
-                        enctype="multipart/form-data">
+                        enctype="multipart/form-data" id="empform">
                         @csrf
                         <div class="row mb-4">
                             <div class=" col-md-4">
@@ -56,7 +56,7 @@
                                     <label class="form-label mt-2 fw-bold" for="form11Example6">Phone</label>
                                     <input required placeholder="Phone Number" type="text" id="form11Example6"
                                         name="phone" class="form-control" 
-                                        title="Enter a valid Bangladeshi phone number with optional +88 or 01 preceding 11 digits" />
+                                        title="phone" />
                                 </div>
                                 <div class="mt-2">
                                     @error('phone')
@@ -146,13 +146,13 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-outline mb-4">
-                                    <label class="form-label mt-2 fw-bold" for="form11Example6">Passwors</label>
-                                    <input required placeholder="Passwors" type="password" id="form11Example6"
-                                        name="passwors" class="form-control" 
-                                        title="Enter a valid Bangladeshi phone number with optional +88 or 01 preceding 11 digits" />
+                                    <label class="form-label mt-2 fw-bold" for="form11Example6">password</label>
+                                    <input required placeholder="password" type="password" id="form11Example6"
+                                        name="password" class="form-control" 
+                                        title="password" />
                                 </div>
                                 <div class="mt-2">
-                                    @error('passwors')
+                                    @error('password')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -238,6 +238,7 @@ $.ajaxSetup({
     window.site_url = '{!! url("/") !!}';
     
 </script>
+<script src="{{ config('constants.APP_URL') .'js/employee/employee_validations.js?v=0.1' }}" type="text/javascript"></script>
 <script type="text/javascript">
     $("#depat").change(function () {
         var department = $(this).val(); 
